@@ -1,0 +1,131 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Address</h4>
+                        <!-- <p class="card-category">Login your profile</p>-->
+                    </div>
+                    <div class="card-body">
+                      <form [formGroup]="signinForm" class="form-signin">
+                        <label for="inputEmail" class="sr-only">Enter Latitude</label>
+                        <input type="email" formControlName="email" id="inputEmail" class="form-control" [ngClass]="{ 'is-invalid': (f.email.touched||submitted) && f.email.errors }"  style="margin:4px;" placeholder="Enter Latitude" required autofocus>
+                        <div *ngIf="(f.email.touched||submitted)&& f.email.errors" class="invalid-feedback">
+                            <div *ngIf="(f.email.touched||submitted)&&f.email.errors.required">Latitude is required</div>
+                            
+                        </div>
+                        <label for="inputPassword" class="sr-only">Enter Longitude</label>
+                        <input type="password" formControlName="password" id="inputPassword" class="form-control" [ngClass]="{ 'is-invalid': (f.password.touched ||submitted) && f.password.errors }" style="margin:4px;" placeholder="Enter Longitude" required>
+                        <div *ngIf="(f.password.touched||submitted) && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="(f.password.touched||submitted)&&f.password.errors.required">Longitude is required</div>
+                            
+                        </div>
+                        <button mat-raised-button type="submit" (click)="signin()"  class="btn btn-danger pull-right">Create Address</button>
+                          <div class="clearfix"></div>
+                              </form>
+                      
+                    
+                    
+                      <!-- 
+                     <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Company (disabled)" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Username">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Email address" type="email">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Fist Name" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Last Name" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Adress" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="City" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Country" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Postal Code" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <label>About Me</label>
+                                  <mat-form-field class="example-full-width">
+                                     <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                                   </mat-form-field>
+                                    <!-- <div class="form-group">
+  
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div> -->
+                                <!-- 
+                                </div>
+                                </div>
+                                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                                <div class="clearfix"></div>
+                              </form>
+                                -->  
+                      
+                        
+                    </div>
+                </div>
+              
+            </div>
+         <!--    <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                   
+  <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                   --> 
+                </div>
+            </div>
+        </div>
+  

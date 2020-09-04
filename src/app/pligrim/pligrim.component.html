@@ -1,0 +1,52 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Purchase Details</h4>
+                        <p class="card-category"> View details of iitems that purchased by customer</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        ContactNumber
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of ItemsArray">
+                                      <td>{{ item.name }}</td>
+                                      <td>{{ item.email }}</td>
+                                      <td>{{ item.contactNumber }}</td>
+                                      <td>{{ item.verified }}</td>
+                                      <td><button class="btn btn-danger" type="submit" (click)="setAddress(item.email)" >Add Address</button></td>
+                                      
+                                      <td>
+                                         
+                                      </td>
+                                   </tr>
+                                   
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+  

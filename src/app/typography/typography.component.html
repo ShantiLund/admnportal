@@ -1,0 +1,182 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Videos</h4>
+                        <button mat-raised-button type="submit" (click)="showCreateVideoDiv()" class="btn btn-warning pull-right" >Add Video</button>
+                          <div class="clearfix"></div>
+                        <!-- <p class="card-category">Login your profile</p>-->
+                    </div>
+                    <div class="card-body">
+                      
+                       
+                      <div *ngFor="let divData of dataSource;"   class="container" style="background-color: whitesmoke; margin-top: 50px;">
+                        <form [formGroup]="VideosForm" class="form-videos">
+                          <label for="videoTitle" class="sr-only">Video Title</label>
+                          <input type="title" formControlName="title" id="videoTitle" class="form-control" [ngClass]="{ 'is-invalid': (f.title.touched||submitted) && f.title.errors }"  style="margin:4px;" placeholder="Video Title" required autofocus>
+                          <div *ngIf="(f.title.touched||submitted)&& f.title.errors" class="invalid-feedback">
+                              <div *ngIf="(f.title.touched||submitted)&&f.title.errors.required">Title  is required</div>
+                              <div *ngIf="(f.title.touched||submitted)&&f.title.errors.title">Email must be a valid email address</div>
+                          </div>
+
+                          <div *ngIf="downloadURL | async; let downloadSrc"  role="alert">
+                            <video width="300" height="300" controls>
+                              <source src="{{downloadSrc}}" type="video/mp4">
+                              
+                            </video>
+                            </div>    
+                              <!-- Select File -->
+                              <div>
+                                <label for="files" class="btn btn-primary">Select Video</label>
+                               <input id="files" class="pull-right" style="visibility:hidden;" type="file" (change)="showPreview($event)" required>
+                              </div>
+                              <br><br>
+       <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success"role="progressbar" [style.width]="(uploadProgress|async)+'%'" [attr.aria-valuenow]="(uploadProgress|async)"
+        aria-valuemin="0" aria-valuemax="100" >
+      </div>
+       </div>
+      
+  
+                             
+                            
+                         
+                      <button mat-raised-button type="submit" (click)="createViideoData(divData,title,downloadURL)"  class="btn btn-danger pull-right"> Create Video </button>
+                            
+                            
+                            
+                             
+                                </form>
+
+                      </div>
+
+                       <div class="container"  *ngFor="let divData of newdataSource"  style="background-color: whitesmoke; width: auto; height: auto; margin-top: 50px;">
+                                  <div class="media">
+                                    <div *ngIf="newurl | async; let downloadSrc"  role="alert">
+                            <video width="250" height="200" controls>
+                              <source src="{{downloadSrc}}" type="video/mp4">
+                              
+                            </video>
+                            </div> 
+                                    <div class="media-body">
+                                      <br>
+                                     <u> <h5 class="mt-0 font-weight-bold">{{title}}</h5></u>
+                                      <button mat-raised-button type="submit" class="btn btn-primary" (click)="showUpdateDiv()" style="width: auto; height: auto;"  >Update Link </button>
+                                      <br>
+                                      <button mat-raised-button type="submit" class="btn btn-danger" (click)="deletVideo(divData)" style="width: 130px;"> Delete </button>
+                                      <div class="clearfix"></div>
+                                    </div>
+                                  </div>
+                                  <br>
+                                  <br>
+                                </div>
+                               
+                               
+                                
+                                         
+                    
+                    
+                      <!-- 
+                     <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Company (disabled)" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Username">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Email address" type="email">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Fist Name" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Last Name" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Adress" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="City" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Country" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Postal Code" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <label>About Me</label>
+                                  <mat-form-field class="example-full-width">
+                                     <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                                   </mat-form-field>
+                                    <!-- <div class="form-group">
+  
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div> -->
+                                <!-- 
+                                </div>
+                                </div>
+                                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                                <div class="clearfix"></div>
+                              </form>
+                                -->  
+                      
+                        
+                    </div>
+                </div>
+              
+            </div>
+         <!--    <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                   
+  <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                   --> 
+                </div>
+            </div>
+        </div>
+  

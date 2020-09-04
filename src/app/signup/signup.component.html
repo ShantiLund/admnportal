@@ -1,0 +1,81 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Sign Up </h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="signupForm" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                            <label for="firstName">First name</label>
+                            <input type="text" formControlName="firstName" class="form-control" id="firstName" [ngClass]="{ 'is-invalid': (f.firstName.touched ||submitted) && f.firstName.errors }" placeholder="" value="" required>
+                            <div *ngIf="(f.firstName.touched||submitted)&& f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="(f.firstName.touched||submitted)&&f.firstName.errors.required">FIrst Name  is required</div>
+                                
+                            </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                            <label for="lastName">Last name</label>
+                            <input type="text" formControlName="lastName" class="form-control" id="lastName" [ngClass]="{ 'is-invalid': (f.lastName.touched ||submitted) && f.lastName.errors }" placeholder="" value="" required>
+                            <div *ngIf="(f.lastName.touched||submitted)&& f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="(f.lastName.touched||submitted)&&f.lastName.errors.required">Last Name  is required</div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact">contact</label>
+                            <input type="text" formControlName="contactNumber" class="form-control" id="contact" [ngClass]="{ 'is-invalid': (f.contactNumber.touched ||submitted) && f.contactNumber.errors }" placeholder="+923011234567" required>
+                            <div *ngIf="(f.contactNumber.touched||submitted)&& f.contactNumber.errors" class="invalid-feedback">
+                                <div *ngIf="(f.contactNumber.touched||submitted)&&f.contactNumber.errors.required">FIrst Name  is required</div>
+                                
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" formControlName="email" class="form-control" id="email"  [ngClass]="{ 'is-invalid': (f.email.touched ||submitted) && f.email.errors }" placeholder="you@example.com" required>
+                            <div *ngIf="(f.email.touched||submitted)&& f.email.errors" class="invalid-feedback">
+                                <div *ngIf="(f.email.touched||submitted)&&f.email.errors.required">Email is required</div>
+                                <div *ngIf="(f.email.touched||submitted)&&f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" formControlName="password" class="form-control" id="password" [ngClass]="{ 'is-invalid': (f.password.touched ||submitted) && f.password.errors }" required>
+                            <div *ngIf="(f.password.touched||submitted)&& f.password.errors" class="invalid-feedback">
+                                <div *ngIf="(f.password.touched||submitted)&&f.password.errors.required">Password is required</div>
+                                <div *ngIf="(f.password.touched||submitted)&&f.password.errors.email">Password must be minimum 8 characters long</div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <button mat-raised-button type="submit" (click)="signup()"  class="btn btn-danger pull-right">Sign Up </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
